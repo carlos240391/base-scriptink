@@ -43,7 +43,7 @@ const Anouncement = (props) => {
                         animate={{opacity:1}}
                         transition={{duration:1.5, delay:0.5}}
                         >
-            <AnouncementWrapper anouncementSettings={anouncementSettings}>
+            <AnouncementWrapper anouncementSettings={anouncementSettings} id="js-anuncio">
                 <AnouncementContainer anouncementSettings={anouncementSettings} id="js-parent">
 
                     {anouncementSettings.anouncements.map((anouncement, i)=>{

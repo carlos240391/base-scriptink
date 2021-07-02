@@ -8,6 +8,7 @@ const SliderOpacity = (props) => {
 
     //const {items, controls} = props
     const [index, setIndex] = React.useState(0)
+    const [show, setShow] = React.useState(true)
 
     const {
         sliders,
@@ -28,6 +29,33 @@ const SliderOpacity = (props) => {
         return ()=> clearInterval(tick)
     },[index])
 
+    React.useEffect(()=>{
+        // if(visibility){
+        //     setTimeout(()=>{
+        //         setShow(true)
+        //     },1500)
+        // }
+    },[])
+    const moveSlideParallax = React.useCallback(()=>{
+        const getSlider = document.querySelectorAll('.slider-item-content__card');
+        const getControls = document.querySelectorAll('.controls');
+        const getItemsSlide = document.querySelectorAll('.slider-caja');
+
+        
+        getControls.forEach((controls)=>{
+            controls.style.transform = `translateY(${-window.scrollY / 18}px) translateX(-50%)`
+        })
+        getSlider.forEach((slider)=>{
+            //slider.style.transform = `translateY(${window.scrollY / 10}px)`
+        })
+    },[])
+
+    React.useEffect(()=>{
+        window.addEventListener('scroll', moveSlideParallax);
+        return ()=> window.removeEventListener('scroll', moveSlideParallax);
+    },[moveSlideParallax])
+  
+
     if(!visibility) return null;
  
 
@@ -37,22 +65,30 @@ const SliderOpacity = (props) => {
                     initial={{opacity:0}}
                     animate={{opacity:1}}
                     transition={{duration:1.5, delay:1.5}}>
-        <SliderCont {...props}>
-            <section className="slider-caja">
+        {show ? 
+        <SliderCont {...props} style={{overflow:'hidden'}}>
+            <section className="slider-caja" id="s-slider">
             {sliders.map((item, i) =>(
-                <SliderItem src={item.src}
+                <SliderItem src=""
                             key={i}
                             {...props}
+                            colorTitle={item.colorTitle}
+                            backOpacity={item.backOpacity}
+                            textAlign={item.textAlign}
+                            btnAlign={item.btnAlign}
                             position={item.positionCard}
                             opacity={item.opacity}
                             cardWidth={item.cardWidth}
                             cardHeight={item.cardHeight}
                             cardColor={item.cardColor}
+                            data-src={item.src}
+                            colorTextButton={item.colorTextButton}
                             className={
                                 i === index 
-                                ? 'enter'
-                                : 'out'
+                                ? 'enter nodo-slide all-items-slide'
+                                : 'out nodo-slide all-items-slide'
                             }
+                            
                             >
                     {item.visibilityCard &&
                     <section    className="slider-item-content">
@@ -101,6 +137,8 @@ const SliderOpacity = (props) => {
                 </section>
             )}
         </SliderCont>
+        : null
+        }
         </motion.div>
         </>
     );

@@ -23,14 +23,22 @@ export const NavWrapper = styled.nav.attrs(props =>({
         responsiveBackColorHover: props.themeSettings.navbarSettings.responsiveBackColorHover,
 }))`  
    
-        position:sticky;
-        top:0px;
+        position:fixed;
+        width:100%;
         left:0px;
         z-index:900;
         display:flex;
-        background:${(props)=> props.backColor};
         justify-content: center;
-
+        /* -webkit-box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.31);
+        -moz-box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.31);
+        box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.31); */
+        
+        .logo-navbar{
+            width:230px;
+            height:50px;
+            object-fit:contain;
+            object-position: left center;
+        }
         .nav-logo{
             display:flex;
             justify-content:center;

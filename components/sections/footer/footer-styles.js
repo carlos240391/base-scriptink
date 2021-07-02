@@ -32,16 +32,73 @@ export const FooterContainer = styled.footer.attrs(props =>({
                 grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
                 padding:20px 0px;
                 border-bottom:1px solid rgba(255,255,255,0.1);
+                grid-gap:20px 0px;
                 &-logo{
                     display:flex;
                     img{
+                        width:150px;
+                        height:100px;
+                        object-fit: contain;
                         display:flex;
+                    }
+                }
+                &-firm{
+                    color:white;
+                    font-size:16px;
+                    i{
+                        margin:0px 10px;
+                    }
+                    @media (max-width:600px){
+                        text-align:center;
                     }
                 }
                 &-redes{
                     display:flex;
-                    justify-content:flex-end;
+                    flex-flow:column;
+                    align-items:flex-start;
+                    @media (max-width:600px){
+                        align-items:center!important;
+                    }
+                    p{
+                        font-weight:700;
+                        font-size:18px!important;
+                    }
+                    p,a{
+                        color:white;
+                        font-size:16px;
+                    }
+                }
+                .envolve-link-redes{
+                    display:flex;
                     align-items:center;
+                    
+                    i{
+                        margin-right:10px;
+                        background:white;
+                        border-radius:3px;
+                        width:20px;
+                        height:20px;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        font-size:14px;
+                    }
+                }
+                &-links{
+                    display:flex;
+                    flex-flow:column;
+                    @media (max-width:600px){
+                        align-items:center!important;
+                    }
+                    p,a{
+                        color:white;
+                        font-size:16px;
+                    }
+                }
+                &-redes{
+                    display:flex;
+               
+                    align-items:flex-start;
                     &-links{
                         display:flex;
                         &-link{
@@ -70,7 +127,7 @@ export const FooterContainer = styled.footer.attrs(props =>({
                 }
             }
             &__bottom{
-                padding:20px 0px;
+                padding:20px 0px 50px;
                 display:grid;
                 grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
                 grid-gap:10px;

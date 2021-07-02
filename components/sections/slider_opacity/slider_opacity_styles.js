@@ -104,7 +104,6 @@ export const SliderItem = styled.section.attrs(props =>({
     colorTitles: props.themeSettings.sliderOpacitySettings.colorTitles,
     colorContent: props.themeSettings.sliderOpacitySettings.colorContent,
     colorSubheading: props.themeSettings.sliderOpacitySettings.colorSubheading
-
 }))`
        
         width:100%;
@@ -112,6 +111,7 @@ export const SliderItem = styled.section.attrs(props =>({
         background-image:url(${(props) => props.src});
         background-size:cover;
         background-position:center center;
+        background-attachment: fixed;
         position:absolute;
         left:0px;
         top:0px;
@@ -121,7 +121,9 @@ export const SliderItem = styled.section.attrs(props =>({
             content:'';
             width:100%;
             height:100%;
-            background:rgba(0,0,0,0.5);
+            background:black;
+            opacity:${(props)=>props.backOpacity};
+
             mix-blend-mode:multiply;
         }
         .enter-card{
@@ -138,7 +140,7 @@ export const SliderItem = styled.section.attrs(props =>({
             display:flex;
             align-items:center;
             justify-content:${(props) => props.position};
-            
+            text-align: ${(props) => props.textAlign};
             @media (max-width:${(props)=> props.widthContent}){
                padding:0px 20px;  
             }
@@ -160,7 +162,9 @@ export const SliderItem = styled.section.attrs(props =>({
                     color:${(props)=> props.colorSubheading};
                 }
                 h1{
-                    color:${(props)=> props.colorTitles};
+                    color:${(props)=> props.colorTitle};
+                    font-size:4.6rem;
+                    text-transform:uppercase;
                 }
                 p{
                     font-weight:300;
@@ -169,8 +173,12 @@ export const SliderItem = styled.section.attrs(props =>({
                 }
                 .btn-content{
                     display:flex;
-                    justify-content:flex-start;
+                    justify-content:${(props)=> props.btnAlign};
                     margin-top:20px;
+                    a{
+                        background:${(props)=> props.colorTitle};
+                        color:${(props)=> props.colorTextButton};
+                    }
                 }
                 @media (max-width:800px){
                     padding:20px;

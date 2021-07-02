@@ -32,11 +32,25 @@ export const InfoBannerContainer = styled.section.attrs(props=>({
             &__body{
                 p{
                     font-weight:300;
-                    font-size:1.6rem;
+                    font-size:25px;
+                    padding:0px 30px;
+                    max-width:500px;
+                    line-height:1.5;
+                    position:relative;
+                    :before{
+                        content:'';
+                        display:block;
+                        width:8px;
+                        height:100%;
+                        position:absolute;
+                        top:0px;
+                        left:0px;
+                        background:white;  
+                    }
                 }
                 &-anchor{
                     display:flex;
-                    padding:20px 0px;
+                    padding:40px 30px 0px 30px;
                 }
             }
             @media (max-width:800px){

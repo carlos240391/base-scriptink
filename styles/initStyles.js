@@ -1,6 +1,27 @@
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle, keyframes} from 'styled-components';
+
+const enter = keyframes`
+    0%{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0px);
+    }
 
 
+`;
+const enterMenu = keyframes`
+    0%{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0px);
+    }
+`;
 
 
 
@@ -46,6 +67,31 @@ export const InitStyles = createGlobalStyle`
     small{
         font-weight:${(props)=> props.themeSettings.general.lightWeight};
     }
+    .section-landing{
+        opacity:0;
+    }
+    /* .spy-nodo{
+        min-height:400px;
+    }
+    .spy-nodo-true{
+        min-height:0px;
+    }
+    .content-nodo{
+        display:none;
+    }
+    .content-nodo-true{
+        display: block;
+        animation: ${enter} 1s ease-in-out;
+    } */
 
-   
+    .active-link{
+        text-decoration: underline!important;
+    }
+    .active-navbar{
+        -webkit-box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.31);
+        -moz-box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.31);
+        box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.31);
+        animation: ${enterMenu};
+        transition:0.3s;
+    }
 `;

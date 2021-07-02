@@ -1,13 +1,13 @@
-import LayoutGeneral from "../components/layout/layout-general"
+import LayoutPage from '../components/layout/layout-page';
+import PrivacyContent from '../components/sections/privacy/privacy';
+import TermsComp from '../components/sections/privacy/terms_comp';
 
 const Terms = (props) => {
     return ( 
         <>
-        <LayoutGeneral {...props}>
-        <div id="flag-scroll"></div>
-            Terminos y condiciones
-            <div style={{height:'2000px', background:'lightgreen'}}></div>
-        </LayoutGeneral>
+        <LayoutPage {...props}>
+            <TermsComp {...props}/>
+        </LayoutPage>
         </>
      );
 }

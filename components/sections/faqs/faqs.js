@@ -18,9 +18,12 @@ const Faqs = (props) => {
                 const item = allContent[i];
                 if(item.getBoundingClientRect().height > 0){
                     item.classList.remove('faq-content-active');
+                    tab.classList.remove('faq-tab-click-active');
                 }else{
                     allContent.forEach((f)=> f.classList.remove('faq-content-active'));
+                    allTabs.forEach((f)=> f.classList.remove('faq-tab-click-active'));
                     item.classList.add('faq-content-active');
+                    tab.classList.add('faq-tab-click-active');
                 }
             })
         })
@@ -32,7 +35,12 @@ const Faqs = (props) => {
 
     return (  
         <>
-           <SpacingAbout>
+        <section className="spy-nodo" id="faqs">
+        <section className="content-nodo">
+
+        
+          
+           <SpacingAbout className="section-landing">
                <Title   {...props}
                         title="Preguntas frecuentes"
                         subtitle="Estamos asu servicio los 365 días del año."
@@ -40,31 +48,37 @@ const Faqs = (props) => {
                         />
                 <GWrapper>
                     <GContainer {...props}>
-                        <FaqsContainer>
+                        <FaqsContainer {...props}>
                             <section className="faqs-img">
-                                <img src={faqsImg} width="200px"/> 
+                                <img    className="lazy-img"
+                                        data-src={faqsImg}
+                                        /> 
                             </section>
                             <section className="faqs-tabs">
-                                <h1>¿Tienes dudas? contactanos</h1>
-                                {
-                                    faqs.map((faq,i)=>{
-                                        return(
-                                            <section key={i}>
-                                                <section className="js-tab-click faq-tab-click">
-                                                    {faq.title}
-                                                </section>
-                                                <section className="js-tab-content faq-content">
-                                                    {faq.content}
-                                                </section>
+                            {
+                                faqs.map((faq,i)=>{
+                                    return(
+                                        <section key={i}>
+                                            <section className="js-tab-click faq-tab-click">
+                                                <span className="tab-click-title">{faq.title}</span>
+                                                <span className="tab-click-icon"><i className="fas fa-caret-right"></i></span>
                                             </section>
-                                        )
-                                    })
-                                }
+                                            <section className="js-tab-content faq-content">
+                                                <div className="faq-content__inner">
+                                                    {faq.content}
+                                                </div>
+                                            </section>
+                                        </section>
+                                    )
+                                })
+                            }
                             </section>
                         </FaqsContainer>
                     </GContainer>
                 </GWrapper>
            </SpacingAbout>
+        </section>
+        </section>
         </>
     );
 }

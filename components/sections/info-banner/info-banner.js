@@ -16,7 +16,11 @@ const InfoBanner = (props) => {
 
     return ( 
         <>
-            <SpacingAbout {...props}>
+        <section className="spy-nodo">
+        <section className="content-nodo">
+
+        
+            <SpacingAbout {...props} className="section-landing">
                 <InfoBannerContainer {...props}>
                     <section className="info-content">
                         <section className="info-content__body">
@@ -35,11 +39,12 @@ const InfoBanner = (props) => {
                     </section>
 
                     <section className="info-img">
-                        <img    src="https://images.unsplash.com/photo-1619267051348-d874f9abcd71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt=""
-                                />
+                        <img className="lazy-img" data-src="/img/middle.jpg"/>
                     </section>
                 </InfoBannerContainer>
             </SpacingAbout>
+        </section>
+        </section>
         </>
      );
 }

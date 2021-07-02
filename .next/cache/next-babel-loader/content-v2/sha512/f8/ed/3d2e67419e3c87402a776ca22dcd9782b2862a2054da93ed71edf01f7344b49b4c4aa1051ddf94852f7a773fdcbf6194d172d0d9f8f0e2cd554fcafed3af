@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nexport const ImageGaleryContent = styled.section.withConfig({\n  displayName: \"image-galery-styles__ImageGaleryContent\",\n  componentId: \"zdopsm-0\"\n})([\"overflow:hidden;img{width:100%;height:550px;object-fit:contain;display:block;}\"]);","map":null,"metadata":{},"sourceType":"module"}

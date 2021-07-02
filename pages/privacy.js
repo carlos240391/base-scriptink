@@ -1,13 +1,12 @@
-import LayoutGeneral from "../components/layout/layout-general"
+import LayoutPage from '../components/layout/layout-page';
+import PrivacyContent from '../components/sections/privacy/privacy';
 
 const Privacy = (props) => {
     return ( 
         <>
-        <LayoutGeneral {...props}>
-        <div id="flag-scroll"></div>
-            Aviso de privacidad
-            <div style={{height:'2000px', background:'lightgreen'}}></div>
-        </LayoutGeneral>
+        <LayoutPage {...props}>
+            <PrivacyContent {...props}/>
+        </LayoutPage>
         </>
      );
 }

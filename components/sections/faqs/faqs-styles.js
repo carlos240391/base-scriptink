@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 
-export const FaqsContainer = styled.section`
+export const FaqsContainer = styled.section.attrs(props=>({
+    colors : props.themeSettings.faqsSettings.colors
+}))`
     width:100%;
     display:flex;
-    background:lightpink;
+   
     padding:30px 0px 0px 0px;
     @media (max-width:800px){
         flex-flow:column;
@@ -17,22 +19,54 @@ export const FaqsContainer = styled.section`
         }
     }
     .faqs-img{
-        background:indianred;
         display:flex;
         justify-content:center;
-        align-items:center;
-        padding:20px;
+        align-items:flex-start;
+        img{
+            width:70%;
+            height:355px;
+            object-fit: contain;
+            @media (max-width:500px){
+                height:250px;
+            }
+        }
     }
     .faq-tab-click{
         cursor:pointer;
         background:white;
+        padding:10px 10px;
+        border-bottom:1px solid ${(props)=> props.colors.colorLightGray};
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        .tab-click-title{
+            color:${(props)=> props.colors.colorGray};
+            font-weight:400;
+        }
     }
     .faq-content{
         max-height:0px;
         overflow:hidden;
-        transition:max-width 0.5s;
+        &__inner{
+            background:white;
+            padding:20px 20px;
+            color:gray;
+            font-weight:300;
+            font-size:1.6rem;
+        }
+    }
+    .faq-tab-click-active{
+        .tab-click-title,
+        .tab-click-icon{
+            color:${(props)=> props.colors.primary};
+        }
+        .tab-click-icon{
+            transition:all 0.5s;
+            transform:rotate(90deg);
+        }
     }
     .faq-content-active{
+        transition:all 1s;
         max-height:1000px;
     }
 

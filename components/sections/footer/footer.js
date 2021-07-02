@@ -27,11 +27,39 @@ const Footer = (props) => {
                             logoURL === ''
                             ? <h1>LOGOTIPO</h1>
                             :
-                            <img src={logoURL} width="150px"/>
+                            <img src={logoURL}/>
                         }
                     </div>
                     
+                    <div className="footer__caja__top-links">
+                        <Link href="/terms">Terminos y condiciones</Link>
+                        <Link href="/privacy">Politica de privacidad</Link>
+                        <p>© Zentinela seguridad <span id="year"></span></p>
+                    </div>
+
                     <div className="footer__caja__top-redes">
+                        <p>Redes sociales</p>
+                        {socialOptions.map((option, i)=>{
+                            if(option.active){
+                            return(
+                                    <div className="envolve-link-redes">
+                                        <i className={option.icon}></i>
+                                        <a  href={option.href}
+                                        rel="noopener noreferrer"
+                                        target="_blank"
+                                        className=""
+                                        key={i}
+                                        >{option.name}</a>
+                                    </div>
+                                )
+                            }
+                        })}
+                    </div>
+                    <div className="footer__caja__top-firm">
+                            Develop by<i class="fas fa-crown"></i>ScriptInk
+                    </div>
+
+                    {/* <div className="footer__caja__top-redes">
                         <div className="footer__caja__top-redes-links">
                             {
                                 socialOptions.map((option, i)=>{
@@ -52,12 +80,12 @@ const Footer = (props) => {
                                 })
                             }
                         </div>
-                    </div>
+                    </div> */}
 
                 </section>
 
 
-                <section className="footer__caja__bottom">
+                {/* <section className="footer__caja__bottom">
 
                     <div className="footer-item">
                         <Link href="/terms">Terminos y condiciones</Link>
@@ -73,7 +101,7 @@ const Footer = (props) => {
                         <Link href="/ruta">Otro Sitio</Link>
                         <Link href="/ruta">Nuestro blog</Link>
                         <Link href="/ruta">Conocenos</Link>
-                    </div>
+                    </div> 
 
                     <div className="footer-item">
                         <a  href="https://script-ink.mx/" 
@@ -82,7 +110,7 @@ const Footer = (props) => {
                             ><span id="year"></span> © Powered by ScriptInk</a>
                     </div>
                     
-                </section>
+                </section> */}
 
             </section>
         </FooterContainer>

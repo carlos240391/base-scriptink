@@ -1,8 +1,11 @@
+import React from 'react'
 import Title from "../../generals/titles/title"
 import { GContainer, GWrapper } from "../../generals/wrapper/wrapper"
 import { AboutContainer, ServicesContainer } from "./about-styles";
 import { SpacingAbout } from '../../generals/wrapper/wrapper'
 import {motion} from 'framer-motion';
+import { Anchor } from '../../generals/buttons/buttons';
+import ServiceItem from './service-item';
 
 
 const About = (props) => {
@@ -13,12 +16,17 @@ const About = (props) => {
         services
     } = props.themeSettings.aboutSettings;
 
+    
+
     return (  
         <>
-             <motion.div exit={{opacity:0}}
+        <section className="spy-nodo" id="about">
+        <section className="content-nodo">
+            <motion.div exit={{opacity:0}}
                     initial={{opacity:0}}
                     animate={{opacity:1}}
                     transition={{duration:1.5, delay:2}}
+                    id="about-id"
                     >
             <SpacingAbout style={{paddingTop:'50px'}}>
                 <Title  {...props}
@@ -35,11 +43,12 @@ const About = (props) => {
                 </GWrapper>
             </SpacingAbout>
 
-            <SpacingAbout>
+            <SpacingAbout style={{paddingTop:'0px'}}>
             <Title  {...props}
                     title="Nuestros servicios"
-                    subtitle="Estamos dedicados a servirte los 365 dias del año."
+                    subtitle="Nosotros cuidamos tu tranquilidad."
                     position={align}
+                    alt="true"
                     />
 
             <GWrapper>
@@ -48,15 +57,10 @@ const About = (props) => {
                     {
                         services.map((service, i)=>{
                             return(
-                                <section    key={i}
-                                            className="services-card"
-                                            >
-                                    <img src={service.icon} alt={service.icon}/>
-                                    <br/>
-                                    <small>{service.subheading}</small>
-                                    <h3>{service.title}</h3>
-                                    <p>{service.content}</p>
-                                </section>
+                                <ServiceItem    service={service}
+                                                {...props}
+                                                key={i}
+                                                />
                             )
                         })
                     }
@@ -65,6 +69,8 @@ const About = (props) => {
             </GWrapper>
             </SpacingAbout>
             </motion.div>
+            </section>
+            </section>
         </>
     );
 }

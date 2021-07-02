@@ -11,10 +11,15 @@ export const AboutContainer = styled.section.attrs(props =>({
         
 }))`
         p{
+            max-width:1000px;
+            margin:auto;
             font-weight:300;
             color:${(props)=> props.colorBody};
             line-height:30px;
             text-align:${(props)=> props.align};
+            @media (max-width:500px){
+                text-align:left;
+            }
         }
 `;
 
@@ -39,7 +44,7 @@ export const ServicesContainer = styled.section.attrs(props=>({
             padding:20px 20px 50px 20px;
             display:flex;
             flex-flow:column;
-                align-items:center;
+            align-items:center;
             @media (max-width:600px){
                 align-items:center;
             }
@@ -50,15 +55,27 @@ export const ServicesContainer = styled.section.attrs(props=>({
             small{
                 color:${(props)=>props.colorSubheading};
             }
+            h3{
+                text-align:center;
+                line-height:1.1;
+                font-size:25px;
+                margin-bottom:10px;
+            }
             p{
                 color:${(props)=>props.colorBody};
                 font-weight:300;
                 line-height:30px;
                 font-size:1.6rem;
-                    text-align:center;
+                text-align:center;
                 @media (max-width:600px){
                     text-align:center;
                 }
             }
+            a{
+                font-weight:100;
+                opacity:1;
+            }
+            
+            
         }
 `;

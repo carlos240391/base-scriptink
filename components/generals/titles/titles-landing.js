@@ -20,17 +20,34 @@ export const ContentTitle = styled.section.attrs(props =>({
                 padding:20px 0px;
                 h3, p{
                     text-align:${(props)=>props.position ? props.position : props.align};
+                    @media (max-width:500px){
+                        text-align:left;
+                    }
                 }
                 h3{
                     font-size:4rem;
                     letter-spacing:0px;
                     position:relative;
+                    @media (max-width:500px){
+                        font-size:3rem;
+                        line-height:30px;
+                    }
                 }
                 p{
                     color:${(props)=> props.colors.primary};
                     font-weight:300;
+                    @media (max-width:500px){
+                        line-height:30px;
+                    }
                 }
             }
+            ${(props)=> props.alt && `
+                h3,p{
+                    @media (max-width:500px){
+                        text-align:center!important;
+                    }
+                }
+            `}
             @media (max-width:${(props)=> props.wrapperSize}){
                 padding:${(props)=>props.paddingMobile};
             }

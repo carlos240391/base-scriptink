@@ -1,4 +1,5 @@
 import Anouncement from "../sections/anouncement/anouncement";
+import AvisoCookies from "../sections/cookies/aviso-cookies";
 import FloatWhatsapp from "../sections/float_whatsapp/float_wathsapp";
 import Footer from "../sections/footer/footer";
 import NavBar from "../sections/navbar/navbar";
@@ -9,6 +10,7 @@ const LayoutGeneral = (props) => {
     return (  
 
         <>
+        <AvisoCookies {...props}/>
         <FloatWhatsapp {...props}/>
         <ProgressBar {...props} />
         <Anouncement {...props}/>
